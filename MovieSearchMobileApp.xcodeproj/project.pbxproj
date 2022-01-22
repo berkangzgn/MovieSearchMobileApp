@@ -12,6 +12,7 @@
 		045ABFFC279C2D6A005C224D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045ABFFB279C2D6A005C224D /* Assets.xcassets */; };
 		045ABFFF279C2D6A005C224D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045ABFFE279C2D6A005C224D /* Preview Assets.xcassets */; };
 		045AC006279C2DFF005C224D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AC005279C2DFF005C224D /* Movie.swift */; };
+		045AC00D279C360D005C224D /* DownloaderClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AC00C279C360D005C224D /* DownloaderClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		045ABFFB279C2D6A005C224D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		045ABFFE279C2D6A005C224D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		045AC005279C2DFF005C224D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		045AC00C279C360D005C224D /* DownloaderClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		045ABFF6279C2D61005C224D /* MovieSearchMobileApp */ = {
 			isa = PBXGroup;
 			children = (
+				045AC00B279C35ED005C224D /* Service */,
 				045AC00A279C2E18005C224D /* App */,
 				045AC009279C2E13005C224D /* View */,
 				045AC008279C2E0B005C224D /* ViewModel */,
@@ -100,6 +103,14 @@
 				045ABFF7279C2D61005C224D /* MovieSearchMobileAppApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		045AC00B279C35ED005C224D /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				045AC00C279C360D005C224D /* DownloaderClient.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,6 +186,7 @@
 				045ABFFA279C2D61005C224D /* ContentView.swift in Sources */,
 				045ABFF8279C2D61005C224D /* MovieSearchMobileAppApp.swift in Sources */,
 				045AC006279C2DFF005C224D /* Movie.swift in Sources */,
+				045AC00D279C360D005C224D /* DownloaderClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

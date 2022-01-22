@@ -19,10 +19,11 @@ struct Movie : Codable { // API üzerinden çektiğimiz bilgileri işleyip deği
     let type : String
     let poster : String
     
-    private enum CodingKeys : String, CodingKey {
+    private enum CodingKeys: String, CodingKey {
         // Gelen veride değişken isimleri büyük harfle başladığı için biz bu değişken isimlerini küçük harfe döndürüyoruz.
         case title = "Title"
         case year = "Year"
+        case imdbID = "imdbID"
         case type = "Type"
         case poster = "Poster"
     }

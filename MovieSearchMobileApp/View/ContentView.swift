@@ -9,8 +9,17 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        Button( action: {
+            DownloaderClient().downloadMovies(search: "titanic") { (result) in
+                switch result {
+                case .success(let movieArray) : print(movieArray)
+                case .failure(let error) : print(error)
+                }
+            }
+        }, label: {
+            Text("Start Test")
+        })
+
     }
 }
 
