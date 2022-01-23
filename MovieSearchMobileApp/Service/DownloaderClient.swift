@@ -8,6 +8,7 @@
 import Foundation
 
 struct DownloaderClient {
+    // Movies Search
     func downloadMovies(search : String, completion : @escaping (Result<[Movie]?,DownloaderError> ) -> Void) {
         // MainThread'i durdurmaması için Async çalışması gerekiyor.
         // Result bize ya success ya fail verir.
@@ -23,7 +24,7 @@ struct DownloaderClient {
                 return completion(.failure(.dataDidntCome))
             }
              
-            // IncomingMovies bir movie dizisidir. CodingKey search anahtar kelimesiydi. Karşısında da JSon bir sonuç bekleyecek. Biz bu diziyi decode ediyoruz.
+            // IncomingMovies bir movie dizisidir. CodingKey search anahtar kelimesiydi. Karşısında da JSon bir sonuç bekleyecek. Biz bu diziyi decode ediyoruz
             guard let movieResponse = try? JSONDecoder().decode(IncomingMovies.self, from: data) else {
                 return completion(.failure(.dataCouldntProcessed))
             }
@@ -32,8 +33,11 @@ struct DownloaderClient {
         }.resume()
     }
     
+    
+    // Movie Detail
     func downloadMovieDetail(imdbID : String, completion: @escaping (Result<MovieDetail,DownloaderError>) -> Void) {
-        guard let url = URL(string: "https://www.omdbapi.com/?i=\(imdbID)&apikey=f5133d7") else {
+        // Artık arama değil görüntüleme yaptığımız için =\(imdbID)'dan önce s değil i anahtar harfini kullandık
+        guard let url = URL(string: "https://www.omdbapi.com/?i=\(imdbID)&apikey=f993ef3a") else {
             return completion(.failure(.wrongUrl))
         }
         
