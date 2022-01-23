@@ -17,7 +17,7 @@ struct DownloaderClient {
             return completion(.failure(.wrongUrl))
         }
         
-        URLSession.shared.dataTask(with: url) { data, response, error in
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
             // Hata boş dönüyorsa veri gelmemiştir, burada onu kontrol ettik
             guard let data = data, error == nil else {
                 return completion(.failure(.dataDidntCome))
@@ -29,7 +29,25 @@ struct DownloaderClient {
             }
         
             completion(.success(movieResponse.movies))
+        }.resume()
+    }
+    
+    func downloadMovieDetail(imdbID : String, completion: @escaping (Result<MovieDetail,DownloaderError>) -> Void) {
+        guard let url = URL(string: "https://www.omdbapi.com/?i=\(imdbID)&apikey=f5133d7") else {
+            return completion(.failure(.wrongUrl))
         }
+        
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            guard let data = data, error == nil else {
+                return completion(.failure(.dataDidntCome))
+            }
+            
+            guard let giveMovieDetail = try? JSONDecoder().decode(MovieDetail.self, from: data) else {
+                return completion(.failure(.dataCouldntProcessed))
+            }
+
+            completion(.success(giveMovieDetail))
+        }.resume()
     }
 }
 

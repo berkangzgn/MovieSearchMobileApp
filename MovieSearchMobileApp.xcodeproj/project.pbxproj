@@ -8,21 +8,34 @@
 
 /* Begin PBXBuildFile section */
 		045ABFF8279C2D61005C224D /* MovieSearchMobileAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ABFF7279C2D61005C224D /* MovieSearchMobileAppApp.swift */; };
-		045ABFFA279C2D61005C224D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ABFF9279C2D61005C224D /* ContentView.swift */; };
+		045ABFFA279C2D61005C224D /* MovieArrayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ABFF9279C2D61005C224D /* MovieArrayView.swift */; };
 		045ABFFC279C2D6A005C224D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045ABFFB279C2D6A005C224D /* Assets.xcassets */; };
 		045ABFFF279C2D6A005C224D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 045ABFFE279C2D6A005C224D /* Preview Assets.xcassets */; };
 		045AC006279C2DFF005C224D /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AC005279C2DFF005C224D /* Movie.swift */; };
 		045AC00D279C360D005C224D /* DownloaderClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AC00C279C360D005C224D /* DownloaderClient.swift */; };
+		045AC00F279C5A18005C224D /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045AC00E279C5A18005C224D /* MovieViewModel.swift */; };
+		04F6B098279CA27A004F8708 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B097279CA27A004F8708 /* DetailView.swift */; };
+		04F6B09A279CA4D2004F8708 /* PrivateImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B099279CA4D2004F8708 /* PrivateImage.swift */; };
+		04F6B09C279CA55B004F8708 /* MovieDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B09B279CA55B004F8708 /* MovieDetail.swift */; };
+		04F6B09E279CA68E004F8708 /* MovieDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B09D279CA68E004F8708 /* MovieDetailViewModel.swift */; };
+		04F6B0A0279CA90C004F8708 /* ImageDownloaderClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F6B09F279CA90C004F8708 /* ImageDownloaderClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		045ABFF4279C2D61005C224D /* MovieSearchMobileApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieSearchMobileApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		045ABFF7279C2D61005C224D /* MovieSearchMobileAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSearchMobileAppApp.swift; sourceTree = "<group>"; };
-		045ABFF9279C2D61005C224D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		045ABFF9279C2D61005C224D /* MovieArrayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieArrayView.swift; sourceTree = "<group>"; };
 		045ABFFB279C2D6A005C224D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		045ABFFE279C2D6A005C224D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		045AC005279C2DFF005C224D /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		045AC00C279C360D005C224D /* DownloaderClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderClient.swift; sourceTree = "<group>"; };
+		045AC00E279C5A18005C224D /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		04F6B097279CA27A004F8708 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		04F6B099279CA4D2004F8708 /* PrivateImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivateImage.swift; sourceTree = "<group>"; };
+		04F6B09B279CA55B004F8708 /* MovieDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetail.swift; sourceTree = "<group>"; };
+		04F6B09D279CA68E004F8708 /* MovieDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewModel.swift; sourceTree = "<group>"; };
+		04F6B09F279CA90C004F8708 /* ImageDownloaderClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloaderClient.swift; sourceTree = "<group>"; };
+		04F6B0A1279D528A004F8708 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,11 +68,12 @@
 		045ABFF6279C2D61005C224D /* MovieSearchMobileApp */ = {
 			isa = PBXGroup;
 			children = (
-				045AC00B279C35ED005C224D /* Service */,
+				04F6B0A1279D528A004F8708 /* Info.plist */,
 				045AC00A279C2E18005C224D /* App */,
-				045AC009279C2E13005C224D /* View */,
-				045AC008279C2E0B005C224D /* ViewModel */,
+				045AC00B279C35ED005C224D /* Service */,
 				045AC007279C2E04005C224D /* Model */,
+				045AC008279C2E0B005C224D /* ViewModel */,
+				045AC009279C2E13005C224D /* View */,
 				045ABFFB279C2D6A005C224D /* Assets.xcassets */,
 				045ABFFD279C2D6A005C224D /* Preview Content */,
 			);
@@ -78,6 +92,7 @@
 			isa = PBXGroup;
 			children = (
 				045AC005279C2DFF005C224D /* Movie.swift */,
+				04F6B09B279CA55B004F8708 /* MovieDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -85,6 +100,8 @@
 		045AC008279C2E0B005C224D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				045AC00E279C5A18005C224D /* MovieViewModel.swift */,
+				04F6B09D279CA68E004F8708 /* MovieDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -92,7 +109,9 @@
 		045AC009279C2E13005C224D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				045ABFF9279C2D61005C224D /* ContentView.swift */,
+				045ABFF9279C2D61005C224D /* MovieArrayView.swift */,
+				04F6B097279CA27A004F8708 /* DetailView.swift */,
+				04F6B099279CA4D2004F8708 /* PrivateImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -109,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				045AC00C279C360D005C224D /* DownloaderClient.swift */,
+				04F6B09F279CA90C004F8708 /* ImageDownloaderClient.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -183,10 +203,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				045ABFFA279C2D61005C224D /* ContentView.swift in Sources */,
+				045ABFFA279C2D61005C224D /* MovieArrayView.swift in Sources */,
+				04F6B098279CA27A004F8708 /* DetailView.swift in Sources */,
+				045AC00F279C5A18005C224D /* MovieViewModel.swift in Sources */,
+				04F6B0A0279CA90C004F8708 /* ImageDownloaderClient.swift in Sources */,
 				045ABFF8279C2D61005C224D /* MovieSearchMobileAppApp.swift in Sources */,
 				045AC006279C2DFF005C224D /* Movie.swift in Sources */,
 				045AC00D279C360D005C224D /* DownloaderClient.swift in Sources */,
+				04F6B09A279CA4D2004F8708 /* PrivateImage.swift in Sources */,
+				04F6B09C279CA55B004F8708 /* MovieDetail.swift in Sources */,
+				04F6B09E279CA68E004F8708 /* MovieDetailViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -320,6 +346,7 @@
 				DEVELOPMENT_TEAM = 424YN83A3C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieSearchMobileApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -349,6 +376,7 @@
 				DEVELOPMENT_TEAM = 424YN83A3C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MovieSearchMobileApp/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
