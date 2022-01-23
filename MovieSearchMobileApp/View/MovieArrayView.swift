@@ -12,6 +12,8 @@ struct MovieArrayView: View {
     @ObservedObject var movieArrayViewModel : MovieArrayViewModel
     // Gözlemlenenen olması için @ObservedObject property olarak ekledik.
     
+    @State var searchMovie = ""
+    
     init() {
         self.movieArrayViewModel = MovieArrayViewModel()
         self.movieArrayViewModel.doMovieSearch(movieName: "fast")
@@ -21,7 +23,7 @@ struct MovieArrayView: View {
         NavigationView{
             
             VStack {
-                TextField("Aranacak Film", text: $searchMovie, onEditingChanged:{ _ in }, onCommit: {
+                TextField("Aranacak Film", text: $searchMovie, onEditingChanged: { _ in }, onCommit: {
                 self.movieArrayViewModel.doMovieSearch(movieName: searchMovie.trimmingCharacters(in: .whitespacesAndNewlines).addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? searchMovie)
                 }).padding().textFieldStyle(RoundedBorderTextFieldStyle())
                     
