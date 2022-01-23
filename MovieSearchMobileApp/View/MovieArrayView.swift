@@ -13,6 +13,7 @@ struct MovieArrayView: View {
     // Gözlemlenenen olması için @ObservedObject property olarak ekledik.
     
     @State var searchMovie = ""
+    @State private var showCancelButton: Bool = false
     
     init() {
         self.movieArrayViewModel = MovieArrayViewModel()
@@ -22,19 +23,43 @@ struct MovieArrayView: View {
     var body: some View {
         NavigationView{
             VStack {
-                TextField("Search Movie", text: $searchMovie, onEditingChanged: { _ in }, onCommit: {
-                self.movieArrayViewModel.doMovieSearch(movieName: searchMovie.trimmingCharacters(in: .whitespacesAndNewlines).addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? searchMovie)
-                }).padding()
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
-                    .padding(7)
-                    .cornerRadius(8)
+                HStack {
+                    HStack {
+                        Image(systemName: "magnifyingglass")
+                        
+                        TextField("Search Movie", text: $searchMovie, onEditingChanged: { isEditing in
+                            self.showCancelButton = true
+                        } , onCommit: {
+                            
+                            // trimmingCharacters : ile arama yaparken boşluk karakterlerini yok ettik. Böylece URL üzerinde arama yaparken sorun çıkmasını engelledik
+                            // .addingPercentEncoding : ile boşluk yerine URL formatindeki gibi %20 ekledik
+                        
+                            self.movieArrayViewModel.doMovieSearch(movieName: searchMovie.trimmingCharacters(in: .whitespacesAndNewlines).addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? searchMovie)
+                        }).padding(.leading)
+                            
+                        Button(action: {
+                            self.searchMovie = ""
+                        }) { Image(systemName: "xmark.circle.fill").opacity(searchMovie == "" ? 0 : 1) }
+                    }.padding(EdgeInsets(top: 8, leading: 6, bottom: 8, trailing: 6))
+                        .foregroundColor(.secondary)
+                        .background(Color(.secondarySystemBackground))
+                        .cornerRadius(10.0)
                     
+                    
+                    if showCancelButton  {
+                        Button("Cancel") {
+                            self.searchMovie = ""
+                            self.showCancelButton = false
+                        }.foregroundColor(Color(.systemBlue))
+                    }
+                }.padding(.horizontal)
+                .navigationBarHidden(showCancelButton) // Default animasyon
+                
                 List(movieArrayViewModel.movies, id: \.imdbID) { movie in
                 NavigationLink(
                     destination: DetailView(imdbID: movie.imdbID),
                     label: {
                         HStack() {
-                            
                             PrivateImage(url: movie.poster)
                                 .frame(width: 90, height:130)
                             
@@ -44,12 +69,12 @@ struct MovieArrayView: View {
                                     .foregroundColor(.blue)
                                 
                                 Text(movie.year)
-                                    .foregroundColor(.orange)
+                                    .foregroundColor(.gray)
                             }
                         }
                     })
                 }.navigationTitle(Text("Movie Searcher"))
-            }.background(Color(.systemGray6))
+            }
         }
     }
 }
