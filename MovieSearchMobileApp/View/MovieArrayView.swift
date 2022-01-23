@@ -21,9 +21,9 @@ struct MovieArrayView: View {
         NavigationView{
             
             VStack {
-                //TextField("Aranacak Film", text: $aranacakFilm, onEditingChanged:{ _ in }, onCommit: {
-                //    self.movieArrayViewModel.doMovieSearch(movieName: aranacakFilm.trimmingCharacters(in: .whitespacesAndNewlines).addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? aranacakFilm)
-                //    }).padding().textFieldStyle(RoundedBorderTextFieldStyle())
+                TextField("Aranacak Film", text: $searchMovie, onEditingChanged:{ _ in }, onCommit: {
+                self.movieArrayViewModel.doMovieSearch(movieName: searchMovie.trimmingCharacters(in: .whitespacesAndNewlines).addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? searchMovie)
+                }).padding().textFieldStyle(RoundedBorderTextFieldStyle())
                     
                 List(movieArrayViewModel.movies, id: \.imdbID) { movie in
                 NavigationLink(

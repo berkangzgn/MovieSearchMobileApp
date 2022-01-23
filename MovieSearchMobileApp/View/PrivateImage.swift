@@ -11,12 +11,14 @@ struct PrivateImage: View {
     
     let url : String
     @ObservedObject var imageDownloaderClient = ImageDownloaderClient()
+    // ImageDownloaderclient üzerinden publish ettiğimiz veriyi burada @ObservedObject ile gözlemlenebilir kılıyoruz.
     
     init(url:String) {
         self.url = url
         self.imageDownloaderClient.downloadImage(url: self.url)
     }
     
+    // URL üzerinden gelen image'ı işliyoruz. eğer gelmezse default olarak placeholder görselimizi veriyoruz.
     var body: some View {
         if let data = self.imageDownloaderClient.downloadedImage {
             return Image(uiImage: UIImage(data: data)!)
